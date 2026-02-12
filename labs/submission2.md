@@ -117,3 +117,21 @@ e8c2b55 (HEAD -> git-reset-practice) Third commit
 	•	--soft отменяет коммит, но сохраняет изменения
 	•	--hard полностью откатывает состояние
 	•	git reflog позволяет восстановить даже удалённые коммиты
+
+## Task 3 — Visualize Commit History
+
+### Выполненные команды
+
+```bash
+git switch -c side-branch
+echo "Branch commit" >> history.txt
+git add history.txt
+git commit -m "Side branch commit"
+git switch -
+j1@MacBook-Pro-j DevOps-Intro % git log --oneline --graph --all
+* 80cea12 (side-branch) Side branch commit
+* 3715a2f (HEAD -> git-reset-practice) docs: update submission2 task2
+* e8c2b55 Third commit
+* 28ba320 Second commit
+* 1fb0069 First commit
+* 890d8c7 (feature/lab1) Add test file
