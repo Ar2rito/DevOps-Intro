@@ -198,3 +198,22 @@ Switched to a new branch 'cmd-compare-2'
   main
   side-branch
 Активная ветка изменилась, аналогично git switch.
+## git restore
+
+echo "scratch" >> demo.txt
+git status
+j1@MacBook-Pro-j DevOps-Intro % git restore demo.txt
+git status
+On branch cmd-compare-2
+Your branch is ahead of 'origin/cmd-compare-2' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+git switch используется для создания и переключения веток.
+git restore применяется для отмены изменений в файлах и работы со staging area.
+git checkout является устаревшей универсальной командой, объединяющей обе функции.
+## GitHub Community
+
+Я выделил репозиторий курсов и проект simple-container-com/api, чтобы поддержать полезные инструменты с открытым исходным кодом и добавить их в закладки для дальнейшего использования. Репозитории, выделенные в качестве основных, повышают узнаваемость, поощряют разработчиков и свидетельствуют о доверии сообщества.
+
+Я следил за преподавателем, техническим персоналом и однокурсниками, чтобы быть в курсе их работы. Наблюдение за разработчиками улучшает сотрудничество, поддерживает нетворкинг и помогает профессиональному росту.
