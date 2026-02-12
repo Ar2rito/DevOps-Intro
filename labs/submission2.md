@@ -134,4 +134,67 @@ j1@MacBook-Pro-j DevOps-Intro % git log --oneline --graph --all
 * e8c2b55 Third commit
 * 28ba320 Second commit
 * 1fb0069 First commit
-* 890d8c7 (feature/lab1) Add test fileMinor update for v1.1.0
+* 890d8c7 (feature/lab1) Add test file
+Side branch commit
+docs: update submission2 task2
+Third commit
+Second commit
+First commit
+Add test file
+Git log graph позволяет наглядно увидеть структуру веток и историю изменений.
+Он помогает быстро понять, где создавались новые ветки и как перемещается HEAD между коммитами.
+## Task 4 — Tagging Commits
+
+### Теги и команды
+
+Объяснение
+
+Lightweight tag — это просто указатель на конкретный коммит.
+Он не содержит дополнительной информации (автор, дата, сообщение).
+j1@MacBook-Pro-j DevOps-Intro % git tag
+v1.0.0
+v1.1.0
+Теги используются для фиксации важных состояний проекта — чаще всего релизов (например, v1.0.0, v1.1.0).
+
+Они важны по следующим причинам:
+	•	Версионирование — позволяют явно обозначить стабильные версии проекта и упрощают навигацию по истории.
+	•	CI/CD процессы — многие системы автоматической сборки и деплоя запускаются при создании или публикации нового тега.
+	•	Release notes — GitHub и другие платформы формируют страницы релизов на основе тегов.
+	•	Воспроизводимость — тег всегда указывает на конкретный коммит, что позволяет точно восстановить состояние проекта в момент релиза.
+	•	Стабильность — в отличие от веток, теги не перемещаются и служат постоянной ссылкой на зафиксированную версию кода.
+
+Таким образом, теги являются важным инструментом управления версиями и организации процесса разработки.
+## Task 5 — git switch vs git checkout vs git restore
+
+## git switch
+
+DevOps-Intro % git switch -c cmd-compare
+Switched to a new branch 'cmd-compare'
+j1@MacBook-Pro-j DevOps-Intro % git branch
+* cmd-compare
+  feature/lab1
+  git-reset-practice
+  main
+  side-branch
+j1@MacBook-Pro-j DevOps-Intro % git switch -                                                
+Switched to branch 'git-reset-practice'
+Your branch is ahead of 'origin/git-reset-practice' by 1 commit.
+  (use "git push" to publish your local commits)
+j1@MacBook-Pro-j DevOps-Intro % git switch -
+Switched to branch 'cmd-compare'
+j1@MacBook-Pro-j DevOps-Intro % git switch -
+Switched to branch 'git-reset-practice'
+
+Команда git branch показывает, что активная ветка изменилась 
+
+## git checkout
+j1@MacBook-Pro-j DevOps-Intro % git checkout -b cmd-compare-2
+git branch
+Switched to a new branch 'cmd-compare-2'
+  cmd-compare
+* cmd-compare-2
+  feature/lab1
+  git-reset-practice
+  main
+  side-branch
+Активная ветка изменилась, аналогично git switch.
