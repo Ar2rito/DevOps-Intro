@@ -134,4 +134,4 @@ j1@MacBook-Pro-j DevOps-Intro % git log --oneline --graph --all
 * e8c2b55 Third commit
 * 28ba320 Second commit
 * 1fb0069 First commit
-* 890d8c7 (feature/lab1) Add test file
+* 890d8c7 (feature/lab1) Add test fileMinor update for v1.1.0
