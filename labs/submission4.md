@@ -184,11 +184,11 @@ j1@MacBook-Pro-j DevOps-Intro % sudo tcpdump -c 5 -i any 'port 53' -nn
 tcpdump: data link type PKTAP
 tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
 listening on any, link-type PKTAP (Apple DLT_PKTAP), snapshot length 524288 bytes
-17:28:37.886566 IP 172.19.0.1.62237 > 172.19.0.2.53: 55666+ Type65? api.github.com. (32)
-17:28:37.886777 IP 172.19.0.1.56228 > 172.19.0.2.53: 58896+ A? api.github.com. (32)
-17:28:37.886971 IP 172.19.0.1.51720 > 172.19.0.2.53: 25895+ Type65? glb-db52c2cf8be544.github.com. (47)
-17:28:37.887078 IP 172.19.0.1.58715 > 172.19.0.2.53: 51731+ A? glb-db52c2cf8be544.github.com. (47)
-17:28:38.060719 IP 172.19.0.2.53 > 172.19.0.1.56228: 58896 1/0/0 A 140.82.121.6 (62)
+17:28:37.886566 IP 172.19.x.1.62237 > 172.19.0.2.53: 55666+ Type65? api.github.com. (32)
+17:28:37.886777 IP 172.19.x.1.56228 > 172.19.x.2.53: 58896+ A? api.github.com. (32)
+17:28:37.886971 IP 172.19.x.1.51720 > 172.19.x.2.53: 25895+ Type65? glb-db52c2cf8be544.github.com. (47)
+17:28:37.887078 IP 172.19.x.1.58715 > 172.19.x.2.53: 51731+ A? glb-db52c2cf8be544.github.com. (47)
+17:28:38.060719 IP 172.19.x.2.53 > 172.19.x.1.56228: 58896 1/0/0 A 140.82.121.6 (62)
 5 packets captured
 3610 packets received by filter
 0 packets dropped by kernel
