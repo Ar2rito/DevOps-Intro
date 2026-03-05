@@ -191,10 +191,12 @@ Linux laba5 6.17.0-14-generic #14-Ubuntu SMP PREEMPT_DYNAMIC Fri Jan 9 16:29:17 
 
 ## Virtualization Detection
 
-Tool: systemd-detect-virt, hostnamectl
+Tool: `systemd-detect-virt, hostnamectl`
+
 Command:
-systemd-detect-virt
-hostnamectl
+
+`systemd-detect-virt`
+`hostnamectl`
 
 
 
