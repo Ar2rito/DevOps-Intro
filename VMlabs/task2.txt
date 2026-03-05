@@ -1,36 +1,29 @@
-Architecture:                            aarch64
-CPU op-mode(s):                          64-bit
-Byte Order:                              Little Endian
-CPU(s):                                  2
-On-line CPU(s) list:                     0,1
-Vendor ID:                               Apple
-Model name:                              -
-Model:                                   0
-Thread(s) per core:                      1
-Core(s) per cluster:                     2
-Socket(s):                               -
-Cluster(s):                              1
-Stepping:                                0x0
-BogoMIPS:                                48.00
-Flags:                                   fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint bf16
-NUMA node(s):                            1
-NUMA node0 CPU(s):                       0,1
-Vulnerability Gather data sampling:      Not affected
-Vulnerability Ghostwrite:                Not affected
-Vulnerability Indirect target selection: Not affected
-Vulnerability Itlb multihit:             Not affected
-Vulnerability L1tf:                      Not affected
-Vulnerability Mds:                       Not affected
-Vulnerability Meltdown:                  Not affected
-Vulnerability Mmio stale data:           Not affected
-Vulnerability Old microcode:             Not affected
-Vulnerability Reg file data sampling:    Not affected
-Vulnerability Retbleed:                  Not affected
-Vulnerability Spec rstack overflow:      Not affected
-Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
-Vulnerability Spectre v1:                Mitigation; __user pointer sanitization
-Vulnerability Spectre v2:                Mitigation; CSV2, but not BHB
-Vulnerability Srbds:                     Not affected
-Vulnerability Tsa:                       Not affected
-Vulnerability Tsx async abort:           Not affected
-Vulnerability Vmscape:                   Not affected
+cd ~/DevOps-Intro
+git checkout -B feature/lab6
+mkdir -p labs
+
+# 1) Выполни команды задания
+sudo docker ps -a
+sudo docker pull ubuntu:latest
+sudo docker images ubuntu
+sudo docker run -it --name ubuntu_container ubuntu:latest
+# внутри контейнера:
+cat /etc/os-release
+ps aux
+exit
+
+sudo docker save -o ubuntu_image.tar ubuntu:latest
+ls -lh ubuntu_image.tar
+sudo docker rmi ubuntu:latest
+sudo docker rm ubuntu_container
+sudo docker rmi ubuntu:latest
+
+# 2) Доп. данные для отчета
+sudo docker images
+sudo docker inspect ubuntu:latest --format '{{len .RootFS.Layers}}' || true
+
+# 3) Обновить файл отчета и запушить
+nano labs/submission6.md
+git add labs/submission6.md
+git commit -m "Update lab6 task1"
+git push -u origin feature/lab6
