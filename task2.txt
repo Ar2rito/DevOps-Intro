@@ -1,0 +1,52 @@
+vboxuser@laba5:/$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+vboxuser@laba5:/$ sudo docker pull ubuntu:latest
+[sudo: authenticate] Password: 
+2latest: Pulling from library/ubuntu
+005
+66a4bbbfab88: Pull complete 
+Digest: sha256:d1e2e92c075e5ca139d51a140fff46f84315c0fdce203eab2807c7e495eff4f9
+Status: Downloaded newer image for ubuntu:latest
+docker.io/library/ubuntu:latest
+vboxuser@laba5:/$ docker images ubuntu
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+ubuntu       latest    350d40843c24   3 weeks ago   101MB
+vboxuser@laba5:/$ docker run -it --name ubuntu_container ubuntu:latest
+root@35ce6161f689:/# cat /etc/os-release
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+root@35ce6161f689:/# ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.1   4308  3548 pts/0    Ss   23:24   0:00 /bi
+root           9  0.0  0.1   7640  3660 pts/0    R+   23:25   0:00 ps 
+root@35ce6161f689:/# exit
+exit
+vboxuser@laba5:/$ docker save -o ubuntu_image.tar ubuntu:latest
+failed to save image: open /.tmp-ubuntu_image.tar569228656: permission denied
+vboxuser@laba5:/$ cd ~
+vboxuser@laba5:~$ pwd
+/home/vboxuser
+vboxuser@laba5:~$ docker save -o ubuntu_image.tar ubuntu:latest
+vboxuser@laba5:~$ ls -lh ubuntu_image.tar
+-rw------- 1 vboxuser vboxuser 99M Mar  5 23:27 ubuntu_image.tar
+vboxuser@laba5:~$ docker rmi ubuntu:latest
+Error response from daemon: conflict: unable to remove repository reference "ubuntu:latest" (must force) - container 35ce6161f689 is using its referenced image 350d40843c24
+vboxuser@laba5:~$ docker rm ubuntu_container
+ubuntu_container
+vboxuser@laba5:~$ docker rmi ubuntu:latest
+Untagged: ubuntu:latest
+Untagged: ubuntu@sha256:d1e2e92c075e5ca139d51a140fff46f84315c0fdce203eab2807c7e495eff4f9
+Deleted: sha256:350d40843c2436d6203ee1e35e9264fb08194c3455ec7462236e01adf542c00b
+Deleted: sha256:e5dae71ade4390c09123a86ada6c9bc64ac469d0495acae5b2216a627395050c
+vboxuser@laba5:~$ 
