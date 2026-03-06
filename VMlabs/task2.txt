@@ -308,4 +308,36 @@ vboxuser@laba5:~$ docker volume inspect app_data
     }
 ]
 vboxuser@laba5:~$ 
+-----
+vboxuser@laba5:~$ docker rm -f web web_new 2>/dev/null || true
+web
+vboxuser@laba5:~$ docker run -d -p 80:80 -v app_data:/usr/share/nginx/html --name web nginx
+eeb8cc9ae6bc4b604c0fb815a9ac85adcb4909b3af63a3118f209aa13050684a
+vboxuser@laba5:~$ cat > index.html <<'EOF'
+> <html><body><h1>Persistent Data</h1></body></html>
+> EOF
+vboxuser@laba5:~$ docker cp index.html web:/usr/share/nginx/html/index.html
+Successfully copied 2.05kB to web:/usr/share/nginx/html/index.html
+vboxuser@laba5:~$ curl http://localhost
+<html><body><h1>Persistent Data</h1></body></html>
+vboxuser@laba5:~$ docker stop web && docker rm web
+web
+web
+vboxuser@laba5:~$ docker run -d -p 80:80 -v app_data:/usr/share/nginx/html --name web_new nginx
+0fe7fdaf27ee410aa9522e4ac477030e7ae3f2b2468a15a74811b69a3864c1e0
+vboxuser@laba5:~$ curl http://localhost
+<html><body><h1>Persistent Data</h1></body></html>
+vboxuser@laba5:~$ docker volume inspect app_data
+[
+    {
+        "CreatedAt": "2026-03-06T00:41:54Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/app_data/_data",
+        "Name": "app_data",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+vboxuser@laba5:~$ 
 
