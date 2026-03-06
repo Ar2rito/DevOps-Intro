@@ -51,3 +51,127 @@ Deleted: sha256:350d40843c2436d6203ee1e35e9264fb08194c3455ec7462236e01adf542c00b
 Deleted: sha256:e5dae71ade4390c09123a86ada6c9bc64ac469d0495acae5b2216a627395050c
 vboxuser@laba5:~$ 
 
+---
+
+---
+
+vboxuser@laba5:~$ docker run -d -p 80:80 --name nginx_container nginx
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+3b66ab8c894c: Pull complete 
+4a89256e588a: Pull complete 
+c813174c999b: Pull complete 
+901e94f777d1: Pull complete 
+e88d7844c33d: Pull complete 
+2668e3434976: Pull complete 
+f2c05cdfb149: Pull complete 
+Digest: sha256:0236ee02dcbce00b9bd83e0f5fbc51069e7e1161bd59d99885b3ae1734f3392e
+Status: Downloaded newer image for nginx:latest
+b62e6c4e9dd3374896e785580be151f4127151c6ebc89d06847cef24944df326
+vboxuser@laba5:~$ curl http://localhost
+Command 'curl' not found, but can be installed with:
+sudo apt install curl
+vboxuser@laba5:~$ sudo apt install curl
+[sudo: authenticate] Password: 
+The following packages were automatically installed and are no longer required:
+  linux-headers-6.17.0-5          linux-tools-6.17.0-5
+  linux-headers-6.17.0-5-generic  linux-tools-6.17.0-5-generic
+  linux-modules-6.17.0-5-generic
+Use 'sudo apt autoremove' to remove them.
+
+Upgrading:
+  libcurl4t64
+
+Installing:
+  curl
+
+Summary:
+  Upgrading: 1, Installing: 1, Removing: 0, Not Upgrading: 252
+  Download size: 658 kB
+  Space needed: 519 kB / 16.4 GB available
+
+Continue? [Y/n] Y
+Get:1 http://ports.ubuntu.com/ubuntu-ports questing-updates/main arm64 libcurl4t64 arm64 8.14.1-2ubuntu1.1 [402 kB]
+Get:2 http://ports.ubuntu.com/ubuntu-ports questing-updates/main arm64 curl arm64 8.14.1-2ubuntu1.1 [256 kB]
+Fetched 658 kB in 3s (252 kB/s)
+(Reading database ... 194620 files and directories currently installed
+.)
+Preparing to unpack .../libcurl4t64_8.14.1-2ubuntu1.1_arm64.deb ...
+Unpacking libcurl4t64:arm64 (8.14.1-2ubuntu1.1) over (8.14.1-2ubuntu1)
+ ...
+Selecting previously unselected package curl.
+Preparing to unpack .../curl_8.14.1-2ubuntu1.1_arm64.deb ...
+Unpacking curl (8.14.1-2ubuntu1.1) ...
+Setting up libcurl4t64:arm64 (8.14.1-2ubuntu1.1) ...
+Setting up curl (8.14.1-2ubuntu1.1) ...
+Processing triggers for man-db (2.13.1-1) ...
+Processing triggers for libc-bin (2.42-0ubuntu3) ...
+vboxuser@laba5:~$ curl http://localhost
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+vboxuser@laba5:~$ cat > index.html <<'EOF'
+> <html>
+> <head>
+> <title>The best</title>
+> </head>
+> <body>
+> <h1>website</h1>
+> </body>
+> </html>
+> EOF
+vboxuser@laba5:~$ docker cp index.html nginx_container:/usr/share/nginx/html/
+Successfully copied 2.05kB to nginx_container:/usr/share/nginx/html/
+vboxuser@laba5:~$ curl http://localhost
+<html>
+<head>
+<title>The best</title>
+</head>
+<body>
+<h1>website</h1>
+</body>
+</html>
+vboxuser@laba5:~$ docker commit nginx_container my_website:latest
+sha256:4c164210830122c887d9f7dc037c9a15f32300f2b2375a546268ff0e0aa6e7be
+vboxuser@laba5:~$ docker images my_website
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+my_website   latest    4c1642108301   19 seconds ago   181MB
+vboxuser@laba5:~$ docker rm -f nginx_container
+nginx_container
+vboxuser@laba5:~$ docker reun -d -p 80:80 --name my_website_container my_website:latest
+unknown shorthand flag: 'd' in -d
+
+Usage:  docker [OPTIONS] COMMAND [ARG...]
+
+Run 'docker --help' for more information
+vboxuser@laba5:~$ docker run -d -p 80:80 --name my_website_container my_website:latest
+6ef305022bb85fa9fdf7bd19dfb2772b8d90410d8941d25b4abecd0c12da0462
+vboxuser@laba5:~$ docker diff my_website_container
+C /etc
+C /etc/nginx
+C /etc/nginx/conf.d
+C /etc/nginx/conf.d/default.conf
+C /run
+C /run/nginx.pid
+vboxuser@laba5:~$ 
+
