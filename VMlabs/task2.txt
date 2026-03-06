@@ -259,4 +259,53 @@ Name:	container2
 Address: 172.18.0.3
 
 Non-authoritative answer:
+---
+---
+vboxuser@laba5:~$ docker rm -f web web_new nginx_container my_website_container 2>/dev/null || true
+my_website_container
+vboxuser@laba5:~$ docker volume rm app_data 2>/dev/null || true
+vboxuser@laba5:~$ docker volume create app_data
+app_data
+vboxuser@laba5:~$ docker volume ls
+DRIVER    VOLUME NAME
+local     app_data
+vboxuser@laba5:~$ docker run -d -p 80:80 -v app_data:/usr/share/nginx/html --name web nginx
+d12cbd158326a0588d473ecc55043ad6ad927c1d0998c79e1c245b00404c6d7b
+vboxuser@laba5:~$ curl http://localhost
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+vboxuser@laba5:~$ docker volume inspect app_data
+[
+    {
+        "CreatedAt": "2026-03-06T00:41:54Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/app_data/_data",
+        "Name": "app_data",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+vboxuser@laba5:~$ 
 
