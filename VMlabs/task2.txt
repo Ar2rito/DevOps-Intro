@@ -1,343 +1,397 @@
-vboxuser@laba5:/$ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-vboxuser@laba5:/$ sudo docker pull ubuntu:latest
+vboxuser@laba5:/$ sudo apt update
 [sudo: authenticate] Password: 
-2latest: Pulling from library/ubuntu
-005
-66a4bbbfab88: Pull complete 
-Digest: sha256:d1e2e92c075e5ca139d51a140fff46f84315c0fdce203eab2807c7e495eff4f9
-Status: Downloaded newer image for ubuntu:latest
-docker.io/library/ubuntu:latest
-vboxuser@laba5:/$ docker images ubuntu
-REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
-ubuntu       latest    350d40843c24   3 weeks ago   101MB
-vboxuser@laba5:/$ docker run -it --name ubuntu_container ubuntu:latest
-root@35ce6161f689:/# cat /etc/os-release
-PRETTY_NAME="Ubuntu 24.04.4 LTS"
-NAME="Ubuntu"
-VERSION_ID="24.04"
-VERSION="24.04.4 LTS (Noble Numbat)"
-VERSION_CODENAME=noble
-ID=ubuntu
-ID_LIKE=debian
-HOME_URL="https://www.ubuntu.com/"
-SUPPORT_URL="https://help.ubuntu.com/"
-BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
-PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-UBUNTU_CODENAME=noble
-LOGO=ubuntu-logo
-root@35ce6161f689:/# ps aux
-USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root           1  0.0  0.1   4308  3548 pts/0    Ss   23:24   0:00 /bi
-root           9  0.0  0.1   7640  3660 pts/0    R+   23:25   0:00 ps 
-root@35ce6161f689:/# exit
-exit
-vboxuser@laba5:/$ docker save -o ubuntu_image.tar ubuntu:latest
-failed to save image: open /.tmp-ubuntu_image.tar569228656: permission denied
-vboxuser@laba5:/$ cd ~
-vboxuser@laba5:~$ pwd
-/home/vboxuser
-vboxuser@laba5:~$ docker save -o ubuntu_image.tar ubuntu:latest
-vboxuser@laba5:~$ ls -lh ubuntu_image.tar
--rw------- 1 vboxuser vboxuser 99M Mar  5 23:27 ubuntu_image.tar
-vboxuser@laba5:~$ docker rmi ubuntu:latest
-Error response from daemon: conflict: unable to remove repository reference "ubuntu:latest" (must force) - container 35ce6161f689 is using its referenced image 350d40843c24
-vboxuser@laba5:~$ docker rm ubuntu_container
-ubuntu_container
-vboxuser@laba5:~$ docker rmi ubuntu:latest
-Untagged: ubuntu:latest
-Untagged: ubuntu@sha256:d1e2e92c075e5ca139d51a140fff46f84315c0fdce203eab2807c7e495eff4f9
-Deleted: sha256:350d40843c2436d6203ee1e35e9264fb08194c3455ec7462236e01adf542c00b
-Deleted: sha256:e5dae71ade4390c09123a86ada6c9bc64ac469d0495acae5b2216a627395050c
-vboxuser@laba5:~$ 
+Hit:1 http://ports.ubuntu.com/ubuntu-ports questing InRelease
+Get:2 http://ports.ubuntu.com/ubuntu-ports questing-updates InRelease [136 kB]
+Get:3 http://ports.ubuntu.com/ubuntu-ports questing-backports InRelease [133 kB]
+Get:4 http://ports.ubuntu.com/ubuntu-ports questing-security InRelease [136 kB]
+Get:5 http://ports.ubuntu.com/ubuntu-ports questing-updates/main arm64 Packages [368 kB]
+Get:6 http://ports.ubuntu.com/ubuntu-ports questing-updates/main Translation-en [98.1 kB]
+Get:7 http://ports.ubuntu.com/ubuntu-ports questing-updates/main arm64 Components [48.7 kB]
+Get:8 http://ports.ubuntu.com/ubuntu-ports questing-updates/main arm64 c-n-f Metadata [8,368 B]
+Get:9 http://ports.ubuntu.com/ubuntu-ports questing-updates/restricted arm64 Packages [268 kB]
+Get:10 http://ports.ubuntu.com/ubuntu-ports questing-updates/restricted Translation-en [38.9 kB]
+Get:11 http://ports.ubuntu.com/ubuntu-ports questing-updates/restricted arm64 Components [212 B]
+Get:12 http://ports.ubuntu.com/ubuntu-ports questing-updates/universe arm64 Packages [246 kB]
+Get:13 http://ports.ubuntu.com/ubuntu-ports questing-updates/universe Translation-en [79.8 kB]
+Get:14 http://ports.ubuntu.com/ubuntu-ports questing-updates/universe arm64 Components [43.7 kB]
+Get:15 http://ports.ubuntu.com/ubuntu-ports questing-updates/universe arm64 c-n-f Metadata [6,392 B]
+Get:16 http://ports.ubuntu.com/ubuntu-ports questing-updates/multiverse Translation-en [1,856 B]
+Get:17 http://ports.ubuntu.com/ubuntu-ports questing-updates/multiverse arm64 Components [212 B]
+Get:18 http://ports.ubuntu.com/ubuntu-ports questing-updates/multiverse Icons (48x48) [1,867 B]
+Get:19 http://ports.ubuntu.com/ubuntu-ports questing-updates/multiverse Icons (64x64) [2,497 B]
+Get:20 http://ports.ubuntu.com/ubuntu-ports questing-backports/main arm64 Components [212 B]
+Get:21 http://ports.ubuntu.com/ubuntu-ports questing-backports/restricted arm64 Components [216 B]
+Get:22 http://ports.ubuntu.com/ubuntu-ports questing-backports/universe arm64 Components [5,752 B]
+Get:23 http://ports.ubuntu.com/ubuntu-ports questing-backports/multiverse arm64 Components [216 B]
+Get:24 http://ports.ubuntu.com/ubuntu-ports questing-security/main arm64 Packages [269 kB]
+Get:25 http://ports.ubuntu.com/ubuntu-ports questing-security/main Translation-en [69.0 kB]
+Get:26 http://ports.ubuntu.com/ubuntu-ports questing-security/main arm64 Components [2,552 B]
+Get:27 http://ports.ubuntu.com/ubuntu-ports questing-security/main arm64 c-n-f Metadata [6,276 B]
+Get:28 http://ports.ubuntu.com/ubuntu-ports questing-security/restricted arm64 Packages [266 kB]
+Get:29 http://ports.ubuntu.com/ubuntu-ports questing-security/restricted Translation-en [38.3 kB]
+Get:30 http://ports.ubuntu.com/ubuntu-ports questing-security/restricted arm64 Components [212 B]
+Get:31 http://ports.ubuntu.com/ubuntu-ports questing-security/universe arm64 Packages [188 kB]
+Get:32 http://ports.ubuntu.com/ubuntu-ports questing-security/universe Translation-en [55.3 kB]
+Get:33 http://ports.ubuntu.com/ubuntu-ports questing-security/universe arm64 Components [12.5 kB]
+Get:34 http://ports.ubuntu.com/ubuntu-ports questing-security/universe arm64 c-n-f Metadata [5,160 B]
+Get:35 http://ports.ubuntu.com/ubuntu-ports questing-security/multiverse arm64 Components [212 B]
+Fetched 2,536 kB in 5s (536 kB/s)                                    
+208 packages can be upgraded. Run 'apt list --upgradable' to see them.
+vboxuser@laba5:/$ sudo apt install htop sysstat -y
+sysstat is already the newest version (12.7.7-0ubuntu1).
+sysstat set to manually installed.
+Installing:                 
+  htop
 
----
-
----
-
-vboxuser@laba5:~$ docker run -d -p 80:80 --name nginx_container nginx
-Unable to find image 'nginx:latest' locally
-latest: Pulling from library/nginx
-3b66ab8c894c: Pull complete 
-4a89256e588a: Pull complete 
-c813174c999b: Pull complete 
-901e94f777d1: Pull complete 
-e88d7844c33d: Pull complete 
-2668e3434976: Pull complete 
-f2c05cdfb149: Pull complete 
-Digest: sha256:0236ee02dcbce00b9bd83e0f5fbc51069e7e1161bd59d99885b3ae1734f3392e
-Status: Downloaded newer image for nginx:latest
-b62e6c4e9dd3374896e785580be151f4127151c6ebc89d06847cef24944df326
-vboxuser@laba5:~$ curl http://localhost
-Command 'curl' not found, but can be installed with:
-sudo apt install curl
-vboxuser@laba5:~$ sudo apt install curl
-[sudo: authenticate] Password: 
-The following packages were automatically installed and are no longer required:
-  linux-headers-6.17.0-5          linux-tools-6.17.0-5
-  linux-headers-6.17.0-5-generic  linux-tools-6.17.0-5-generic
-  linux-modules-6.17.0-5-generic
-Use 'sudo apt autoremove' to remove them.
-
-Upgrading:
-  libcurl4t64
-
-Installing:
-  curl
+Suggested packages:
+  lm-sensors
 
 Summary:
-  Upgrading: 1, Installing: 1, Removing: 0, Not Upgrading: 252
-  Download size: 658 kB
-  Space needed: 519 kB / 16.4 GB available
+  Upgrading: 0, Installing: 1, Removing: 0, Not Upgrading: 208
+  Download size: 184 kB
+  Space needed: 520 kB / 14.5 GB available
 
-Continue? [Y/n] Y
-Get:1 http://ports.ubuntu.com/ubuntu-ports questing-updates/main arm64 libcurl4t64 arm64 8.14.1-2ubuntu1.1 [402 kB]
-Get:2 http://ports.ubuntu.com/ubuntu-ports questing-updates/main arm64 curl arm64 8.14.1-2ubuntu1.1 [256 kB]
-Fetched 658 kB in 3s (252 kB/s)
-(Reading database ... 194620 files and directories currently installed
-.)
-Preparing to unpack .../libcurl4t64_8.14.1-2ubuntu1.1_arm64.deb ...
-Unpacking libcurl4t64:arm64 (8.14.1-2ubuntu1.1) over (8.14.1-2ubuntu1)
- ...
-Selecting previously unselected package curl.
-Preparing to unpack .../curl_8.14.1-2ubuntu1.1_arm64.deb ...
-Unpacking curl (8.14.1-2ubuntu1.1) ...
-Setting up libcurl4t64:arm64 (8.14.1-2ubuntu1.1) ...
-Setting up curl (8.14.1-2ubuntu1.1) ...
+Get:1 http://ports.ubuntu.com/ubuntu-ports questing/main arm64 htop arm64 3.4.1-5build1 [184 kB]
+Fetched 184 kB in 4s (50.5 kB/s)
+Selecting previously unselected package htop.
+(Reading database ... 194833 files and directories currently installed.)
+Preparing to unpack .../htop_3.4.1-5build1_arm64.deb ...
+Unpacking htop (3.4.1-5build1) ...
+Setting up htop (3.4.1-5build1) ...
+Processing triggers for desktop-file-utils (0.28-1) ...
+Processing triggers for hicolor-icon-theme (0.18-2) ...
+Processing triggers for gnome-menus (3.36.0-3ubuntu2) ...
 Processing triggers for man-db (2.13.1-1) ...
-Processing triggers for libc-bin (2.42-0ubuntu3) ...
-vboxuser@laba5:~$ curl http://localhost
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx!</title>
-<style>
-html { color-scheme: light dark; }
-body { width: 35em; margin: 0 auto;
-font-family: Tahoma, Verdana, Arial, sans-serif; }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx!</h1>
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
+vboxuser@laba5:/$ htop
+vboxuser@laba5:/$ htop 
+vboxuser@laba5:/$ iostat -x 1 5
+Linux 6.17.0-19-generic (laba5) 	03/26/2026 	_aarch64_	(2 CPU)
 
-<p>For online documentation and support please refer to
-<a href="http://nginx.org/">nginx.org</a>.<br/>
-Commercial support is available at
-<a href="http://nginx.com/">nginx.com</a>.</p>
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          14.57    0.69    6.32    0.87    0.00   77.55
 
-<p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
-vboxuser@laba5:~$ cat > index.html <<'EOF'
-> <html>
-> <head>
-> <title>The best</title>
-> </head>
-> <body>
-> <h1>website</h1>
-> </body>
-> </html>
-> EOF
-vboxuser@laba5:~$ docker cp index.html nginx_container:/usr/share/nginx/html/
-Successfully copied 2.05kB to nginx_container:/usr/share/nginx/html/
-vboxuser@laba5:~$ curl http://localhost
-<html>
-<head>
-<title>The best</title>
-</head>
-<body>
-<h1>website</h1>
-</body>
-</html>
-vboxuser@laba5:~$ docker commit nginx_container my_website:latest
-sha256:4c164210830122c887d9f7dc037c9a15f32300f2b2375a546268ff0e0aa6e7be
-vboxuser@laba5:~$ docker images my_website
-REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
-my_website   latest    4c1642108301   19 seconds ago   181MB
-vboxuser@laba5:~$ docker rm -f nginx_container
-nginx_container
-vboxuser@laba5:~$ docker reun -d -p 80:80 --name my_website_container my_website:latest
-unknown shorthand flag: 'd' in -d
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+loop0            0.04      0.05     0.00   0.00    0.21     1.21    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop1            1.11     12.94     0.00   0.00    0.17    11.66    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.02
+loop10           0.28      6.19     0.00   0.00    0.26    21.88    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop11           0.15      2.02     0.00   0.00    0.11    13.68    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop12           5.37     77.72     0.00   0.00    0.13    14.48    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.06
+loop13           0.15      1.20     0.00   0.00    0.46     7.98    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop14           0.28      4.65     0.00   0.00    0.76    16.78    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.02
+loop15           0.14      1.11     0.00   0.00    0.50     8.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop16           1.15     10.70     0.00   0.00    0.06     9.30    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop17           0.15      1.13     0.00   0.00    0.00     7.35    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop18           0.19      2.16     0.00   0.00    0.03    11.45    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop19           0.81      7.91     0.00   0.00    0.05     9.79    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop2            0.14      1.12     0.00   0.00    0.41     7.74    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop3            0.16      2.15     0.00   0.00    0.37    13.39    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop4            0.16      2.13     0.00   0.00    0.46    13.56    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop5            0.19      2.29     0.00   0.00    0.47    12.34    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop6            0.16      2.13     0.00   0.00    0.60    13.52    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop7            5.56     15.54     0.00   0.00    0.03     2.80    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop8            0.14      1.12     0.00   0.00    0.52     7.72    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+loop9            0.14      1.11     0.00   0.00    0.54     7.70    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
+sda             79.46   6236.31    34.83  30.48    1.39    78.49   42.66   4893.67   120.93  73.92    2.92   114.72    0.00      0.00     0.00   0.00    0.00     0.00    9.85    0.75    0.24   2.81
+sr0              0.25      4.72     0.00   0.00    0.14    19.01    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
 
-Usage:  docker [OPTIONS] COMMAND [ARG...]
 
-Run 'docker --help' for more information
-vboxuser@laba5:~$ docker run -d -p 80:80 --name my_website_container my_website:latest
-6ef305022bb85fa9fdf7bd19dfb2772b8d90410d8941d25b4abecd0c12da0462
-vboxuser@laba5:~$ docker diff my_website_container
-C /etc
-C /etc/nginx
-C /etc/nginx/conf.d
-C /etc/nginx/conf.d/default.conf
-C /run
-C /run/nginx.pid
-vboxuser@laba5:~$ 
----
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          11.22    0.00    0.51    0.00    0.00   88.27
 
----
-vboxuser@laba5:~$ docker network create lab_network
-f05cea842456e9ba8c42de4a398ff5424f1a018442a0f146a2973322562d1e69
-vboxuser@laba5:~$ docker network ls
-NETWORK ID     NAME          DRIVER    SCOPE
-b436a58b362c   bridge        bridge    local
-70480701e7c4   host          host      local
-f05cea842456   lab_network   bridge    local
-786719a56672   none          null      local
-vboxuser@laba5:~$ docker run -dit --network lab_network --name container1 alpine ash
-Unable to find image 'alpine:latest' locally
-latest: Pulling from library/alpine
-d8ad8cd72600: Pull complete 
-Digest: sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659
-Status: Downloaded newer image for alpine:latest
-480c987d58e08aa85c55142b62f688b4fc81d2ce3996e61fcdb7263f72bb2415
-vboxuser@laba5:~$ docker run -dit --network lab_network --name container2 alpine ash
-ebb2e9cc97ad7b1cf8a081087800500694d144571105db1325109f2d631eac26
-vboxuser@laba5:~$ docker exec container1 ping -c 3 container2
-PING container2 (172.18.0.3): 56 data bytes
-64 bytes from 172.18.0.3: seq=0 ttl=64 time=0.863 ms
-64 bytes from 172.18.0.3: seq=1 ttl=64 time=0.363 ms
-64 bytes from 172.18.0.3: seq=2 ttl=64 time=0.436 ms
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+loop0            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop1            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop10           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop11           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop12           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop13           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop14           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop15           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop16           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop17           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop18           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop19           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop2            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop3            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop4            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop5            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop6            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop7            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop8            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop9            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sda              0.00      0.00     0.00   0.00    0.00     0.00    1.00      4.00     0.00   0.00    0.00     4.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sr0              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
 
---- container2 ping statistics ---
-3 packets transmitted, 3 packets received, 0% packet loss
-round-trip min/avg/max = 0.363/0.554/0.863 ms
-vboxuser@laba5:~$ docker network inspect lab_network
-[
-    {
-        "Name": "lab_network",
-        "Id": "f05cea842456e9ba8c42de4a398ff5424f1a018442a0f146a2973322562d1e69",
-        "Created": "2026-03-06T00:25:15.053210098Z",
-        "Scope": "local",
-        "Driver": "bridge",
-        "EnableIPv4": true,
-        "EnableIPv6": false,
-        "IPAM": {
-            "Driver": "default",
-            "Options": {},
-            "Config": [
-                {
-                    "Subnet": "172.18.0.0/16",
-                    "Gateway": "172.18.0.1"
-                }
-            ]
-        },
-        "Internal": false,
-        "Attachable": false,
-        "Ingress": false,
-        "ConfigFrom": {
-            "Network": ""
-        },
-        "ConfigOnly": false,
-        "Containers": {
-            "480c987d58e08aa85c55142b62f688b4fc81d2ce3996e61fcdb7263f72bb2415": {
-                "Name": "container1",
-                "EndpointID": "23ceb9990a4a47b74da2423c1213ddc7d05f28f3118eafb10f6e88068c134522",
-                "MacAddress": "62:47:ac:50:94:91",
-                "IPv4Address": "172.18.0.2/16",
-                "IPv6Address": ""
-            },
-            "ebb2e9cc97ad7b1cf8a081087800500694d144571105db1325109f2d631eac26": {
-                "Name": "container2",
-                "EndpointID": "3acc36b166420060f4ab61be2947c66056ac1aec139efbc172cebaac8eb098f1",
-                "MacAddress": "be:56:1f:65:36:a0",
-                "IPv4Address": "172.18.0.3/16",
-                "IPv6Address": ""
-            }
-        },
-        "Options": {},
-        "Labels": {}
-    }
-]
-vboxuser@laba5:~$ docker exec container1 nslookup container2
-Server:		127.0.0.11
-Address:	127.0.0.11:53
 
-Non-authoritative answer:
-Name:	container2
-Address: 172.18.0.3
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          11.17    0.00    2.03    0.00    0.00   86.80
 
-Non-authoritative answer:
----
----
-vboxuser@laba5:~$ docker rm -f web web_new nginx_container my_website_container 2>/dev/null || true
-my_website_container
-vboxuser@laba5:~$ docker volume rm app_data 2>/dev/null || true
-vboxuser@laba5:~$ docker volume create app_data
-app_data
-vboxuser@laba5:~$ docker volume ls
-DRIVER    VOLUME NAME
-local     app_data
-vboxuser@laba5:~$ docker run -d -p 80:80 -v app_data:/usr/share/nginx/html --name web nginx
-d12cbd158326a0588d473ecc55043ad6ad927c1d0998c79e1c245b00404c6d7b
-vboxuser@laba5:~$ curl http://localhost
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx!</title>
-<style>
-html { color-scheme: light dark; }
-body { width: 35em; margin: 0 auto;
-font-family: Tahoma, Verdana, Arial, sans-serif; }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx!</h1>
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+loop0            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop1            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop10           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop11           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop12           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop13           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop14           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop15           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop16           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop17           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop18           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop19           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop2            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop3            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop4            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop5            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop6            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop7            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop8            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop9            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sda              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sr0              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
 
-<p>For online documentation and support please refer to
-<a href="http://nginx.org/">nginx.org</a>.<br/>
-Commercial support is available at
-<a href="http://nginx.com/">nginx.com</a>.</p>
 
-<p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
-vboxuser@laba5:~$ docker volume inspect app_data
-[
-    {
-        "CreatedAt": "2026-03-06T00:41:54Z",
-        "Driver": "local",
-        "Labels": null,
-        "Mountpoint": "/var/lib/docker/volumes/app_data/_data",
-        "Name": "app_data",
-        "Options": null,
-        "Scope": "local"
-    }
-]
-vboxuser@laba5:~$ 
------
-vboxuser@laba5:~$ docker rm -f web web_new 2>/dev/null || true
-web
-vboxuser@laba5:~$ docker run -d -p 80:80 -v app_data:/usr/share/nginx/html --name web nginx
-eeb8cc9ae6bc4b604c0fb815a9ac85adcb4909b3af63a3118f209aa13050684a
-vboxuser@laba5:~$ cat > index.html <<'EOF'
-> <html><body><h1>Persistent Data</h1></body></html>
-> EOF
-vboxuser@laba5:~$ docker cp index.html web:/usr/share/nginx/html/index.html
-Successfully copied 2.05kB to web:/usr/share/nginx/html/index.html
-vboxuser@laba5:~$ curl http://localhost
-<html><body><h1>Persistent Data</h1></body></html>
-vboxuser@laba5:~$ docker stop web && docker rm web
-web
-web
-vboxuser@laba5:~$ docker run -d -p 80:80 -v app_data:/usr/share/nginx/html --name web_new nginx
-0fe7fdaf27ee410aa9522e4ac477030e7ae3f2b2468a15a74811b69a3864c1e0
-vboxuser@laba5:~$ curl http://localhost
-<html><body><h1>Persistent Data</h1></body></html>
-vboxuser@laba5:~$ docker volume inspect app_data
-[
-    {
-        "CreatedAt": "2026-03-06T00:41:54Z",
-        "Driver": "local",
-        "Labels": null,
-        "Mountpoint": "/var/lib/docker/volumes/app_data/_data",
-        "Name": "app_data",
-        "Options": null,
-        "Scope": "local"
-    }
-]
-vboxuser@laba5:~$ 
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           9.18    0.00    1.53    0.00    0.00   89.29
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+loop0            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop1            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop10           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop11           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop12           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop13           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop14           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop15           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop16           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop17           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop18           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop19           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop2            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop3            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop4            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop5            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop6            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop7            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop8            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop9            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sda              0.00      0.00     0.00   0.00    0.00     0.00    6.00     80.00    11.00  64.71    0.50    13.33    0.00      0.00     0.00   0.00    0.00     0.00    1.00    2.00    0.00   0.20
+sr0              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          22.62    0.00    4.17    0.00    0.00   73.21
+
+Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
+loop0            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop1            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop10           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop11           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop12           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop13           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop14           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop15           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop16           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop17           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop18           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop19           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop2            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop3            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop4            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop5            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop6            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop7            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop8            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+loop9            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+sda              0.00      0.00     0.00   0.00    0.00     0.00   89.00    444.00     1.00   1.11    0.40     4.99    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.04   0.40
+sr0              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
+
+
+vboxuser@laba5:/$ ps -eo pid, comm, %cpu,%mem --sort=-%cpu | head -n 4 ^C
+vboxuser@laba5:/$ ^C
+vboxuser@laba5:/$ ^C
+vboxuser@laba5:/$ ps -eo pid, comm, %cpu,%mem --sort=-%cpu | head -n 4
+error: garbage option
+
+Usage:
+ ps [options]
+
+ Try 'ps --help <simple|list|output|threads|misc|all>'
+  or 'ps --help <s|l|o|t|m|a>'
+ for additional help text.
+
+For more details see ps(1).
+vboxuser@laba5:/$ ps -eo pid,comm,pcpu,pmem --sort=-pcpu | head -n 4
+    PID COMMAND         %CPU %MEM
+   5368 ps               100  0.1
+   5369 head            50.0  0.1
+   1100 snapd            7.8  1.2
+vboxuser@laba5:/$ ps -eo pid,comm,pcpu,pmem --sort=-pmem | head -n 4
+    PID COMMAND         %CPU %MEM
+   2562 gnome-shell      6.4 13.0
+   3951 ptyxis           4.7  8.6
+   3996 mutter-x11-fram  0.0  3.2
+vboxuser@laba5:/$ sudo iotop -o -b -n 5 | head -n 20
+sudo-rs: 'iotop': command not found
+vboxuser@laba5:/$ sudo apt install -y iotop
+Installing:                     
+  iotop
+
+Summary:
+  Upgrading: 0, Installing: 1, Removing: 0, Not Upgrading: 208
+  Download size: 24.6 kB
+  Space needed: 163 kB / 14.3 GB available
+
+Get:1 http://ports.ubuntu.com/ubuntu-ports questing/main arm64 iotop arm64 0.6-42-ga14256a-0.3build1 [24.6 kB]
+Fetched 24.6 kB in 2s (13.5 kB/s)
+Selecting previously unselected package iotop.
+(Reading database ... 194843 files and directories currently installed.)
+Preparing to unpack .../iotop_0.6-42-ga14256a-0.3build1_arm64.deb ...
+Unpacking iotop (0.6-42-ga14256a-0.3build1) ...
+Setting up iotop (0.6-42-ga14256a-0.3build1) ...
+update-alternatives: using /usr/sbin/iotop-py to provide /usr/sbin/iotop (iotop) in auto mode
+Processing triggers for man-db (2.13.1-1) ...
+vboxuser@laba5:/$ sudo iotop -o -b -n 5 | head -n 20
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:        47.44 K/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:      75.12 K/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+    299 be/3 root        0.00 B/s   47.44 K/s ?unavailable?  [jbd2/sda2-8]
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+vboxuser@laba5:/$ sudo iotop -o -b -n 15
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         7.81 K/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:      19.52 K/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+    299 be/3 root        0.00 B/s    7.81 K/s ?unavailable?  [jbd2/sda2-8]
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:      11.83 K/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
+Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
+    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
+vboxuser@laba5:/$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           677M  1.9M  675M   1% /run
+/dev/sda2        24G  8.9G   14G  40% /
+tmpfs           1.7G     0  1.7G   0% /dev/shm
+efivarfs        256K   32K  225K  13% /sys/firmware/efi/efivars
+tmpfs           5.0M  8.0K  5.0M   1% /run/lock
+tmpfs           1.7G  8.0K  1.7G   1% /tmp
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
+tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
+/dev/sda1       1.1G  6.6M  1.1G   1% /boot/efi
+tmpfs           339M   96K  339M   1% /run/user/1000
+/dev/sr0        4.7G  4.7G     0 100% /media/vboxuser/Ubuntu 25.10 arm64
+vboxuser@laba5:/$ du -h /var | sort -rh | head -n 10
+du: cannot read directory '/var/cache/apparmor/8eeb6286.0': Permission denied
+du: cannot read directory '/var/cache/apparmor/70b6ca72.0': Permission denied
+du: cannot read directory '/var/cache/private': Permission denied
+du: cannot read directory '/var/cache/ldconfig': Permission denied
+du: cannot read directory '/var/cache/cups': Permission denied
+du: cannot read directory '/var/cache/apt/archives/partial': Permission denied
+du: cannot read directory '/var/spool/rsyslog': Permission denied
+du: cannot read directory '/var/spool/cron/crontabs': Permission denied
+du: cannot read directory '/var/spool/cups': Permission denied
+du: cannot read directory '/var/log/private': Permission denied
+du: cannot read directory '/var/log/sssd': Permission denied
+du: cannot read directory '/var/log/speech-dispatcher': Permission denied
+du: cannot read directory '/var/log/gdm3': Permission denied
+du: cannot read directory '/var/log/chrony': Permission denied
+du: cannot read directory '/var/log/unattended-upgrades': Permission denied
+du: cannot read directory '/var/lib/fwupd/gnupg': Permission denied
+du: cannot read directory '/var/lib/docker': Permission denied
+du: cannot read directory '/var/lib/udisks2': Permission denied
+du: cannot read directory '/var/lib/snapd/cache': Permission denied
+du: cannot read directory '/var/lib/snapd/cookie': Permission denied
+du: cannot read directory '/var/lib/snapd/void': Permission denied
+du: cannot read directory '/var/lib/saned': Permission denied
+du: cannot read directory '/var/lib/private': Permission denied
+du: cannot read directory '/var/lib/containerd': Permission denied
+du: cannot read directory '/var/lib/openvpn/chroot': Permission denied
+du: cannot read directory '/var/lib/gdm3/seat0/config': Permission denied
+du: cannot read directory '/var/lib/gdm3/seat0/state': Permission denied
+du: cannot read directory '/var/lib/sss/secrets': Permission denied
+du: cannot read directory '/var/lib/sss/db': Permission denied
+du: cannot read directory '/var/lib/sss/pipes/private': Permission denied
+du: cannot read directory '/var/lib/sss/keytabs': Permission denied
+du: cannot read directory '/var/lib/sss/deskprofile': Permission denied
+du: cannot read directory '/var/lib/fprint': Permission denied
+du: cannot read directory '/var/lib/AccountsService/users': Permission denied
+du: cannot read directory '/var/lib/update-notifier/package-data-downloads/partial': Permission denied
+du: cannot read directory '/var/lib/bluetooth': Permission denied
+du: cannot read directory '/var/lib/apt/lists/partial': Permission denied
+du: cannot read directory '/var/lib/gnome-remote-desktop': Permission denied
+du: cannot read directory '/var/lib/chrony': Permission denied
+du: cannot read directory '/var/lib/colord/.cache': Permission denied
+du: cannot read directory '/var/lib/NetworkManager': Permission denied
+du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-chrony.service-IQ6Pyk': Permission denied
+du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-ModemManager.service-CgSPef': Permission denied
+du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-polkit.service-Tx08Lt': Permission denied
+du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-power-profiles-daemon.service-PHID5P': Permission denied
+du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-systemd-logind.service-TuUM6e': Permission denied
+du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-switcheroo-control.service-fcji9y': Permission denied
+du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-colord.service-Ql94LS': Permission denied
+du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-upower.service-GkJHO0': Permission denied
+3.3G	/var
+3.0G	/var/lib
+2.7G	/var/lib/snapd
+2.6G	/var/lib/snapd/snaps
+164M	/var/log
+161M	/var/log/journal/4793bc6817304b2eb81657150578b550
+161M	/var/log/journal
+148M	/var/lib/apt/lists
+148M	/var/lib/apt
+141M	/var/cache
+vboxuser@laba5:/$ sudo find /var -type f -exec du -h {} + | sort -rh | head -n 3
+553M	/var/lib/snapd/snaps/gnome-46-2404_154.snap
+553M	/var/lib/snapd/cache/37b852c1861182e7a518b849062c85f15aec4b9eb59eabec341fd540c2b1cf5ac9d22072080a4ada4c9e6eff88ffe622
+503M	/var/lib/snapd/snaps/gnome-42-2204_245.snap
+sort: write failed: 'standard output': Broken pipe
+vboxuser@laba5:/$ 
 
