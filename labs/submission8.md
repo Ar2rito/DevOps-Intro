@@ -211,17 +211,17 @@ Set up real-time monitoring for a public website using Checkly with availability
 
 ## 2.4 Capture Proof & Documentation
 
-### Browser check configuration
-![Browser check configuration](configuration.png)
+### 1. Browser check configuration
+<img src="configuration.png" width="700" alt="Browser check configuration">
 
-### Successful check result
-![Successful check result (API)](check.png)
+### 2. Alert settings
+<img src="Alert.png" width="700" alt="Alert settings">
 
-### Alert settings
-![Alert settings](Alert.png)
+### 3. Successful check result
+<img src="check.png" width="700" alt="Successful check result">
  
-### Dashboard overview
-![Dashboard overview](overview.png)
+### 4. Dashboard overview
+<img src="overview.png" width="700" alt="Dashboard overview">
 
 ## Analysis
 - Были выбраны два типа проверок, чтобы покрыть и доступность, и реальный пользовательский сценарий.
