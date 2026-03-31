@@ -1,397 +1,284 @@
-vboxuser@laba5:/$ sudo apt update
-[sudo: authenticate] Password: 
-Hit:1 http://ports.ubuntu.com/ubuntu-ports questing InRelease
-Get:2 http://ports.ubuntu.com/ubuntu-ports questing-updates InRelease [136 kB]
-Get:3 http://ports.ubuntu.com/ubuntu-ports questing-backports InRelease [133 kB]
-Get:4 http://ports.ubuntu.com/ubuntu-ports questing-security InRelease [136 kB]
-Get:5 http://ports.ubuntu.com/ubuntu-ports questing-updates/main arm64 Packages [368 kB]
-Get:6 http://ports.ubuntu.com/ubuntu-ports questing-updates/main Translation-en [98.1 kB]
-Get:7 http://ports.ubuntu.com/ubuntu-ports questing-updates/main arm64 Components [48.7 kB]
-Get:8 http://ports.ubuntu.com/ubuntu-ports questing-updates/main arm64 c-n-f Metadata [8,368 B]
-Get:9 http://ports.ubuntu.com/ubuntu-ports questing-updates/restricted arm64 Packages [268 kB]
-Get:10 http://ports.ubuntu.com/ubuntu-ports questing-updates/restricted Translation-en [38.9 kB]
-Get:11 http://ports.ubuntu.com/ubuntu-ports questing-updates/restricted arm64 Components [212 B]
-Get:12 http://ports.ubuntu.com/ubuntu-ports questing-updates/universe arm64 Packages [246 kB]
-Get:13 http://ports.ubuntu.com/ubuntu-ports questing-updates/universe Translation-en [79.8 kB]
-Get:14 http://ports.ubuntu.com/ubuntu-ports questing-updates/universe arm64 Components [43.7 kB]
-Get:15 http://ports.ubuntu.com/ubuntu-ports questing-updates/universe arm64 c-n-f Metadata [6,392 B]
-Get:16 http://ports.ubuntu.com/ubuntu-ports questing-updates/multiverse Translation-en [1,856 B]
-Get:17 http://ports.ubuntu.com/ubuntu-ports questing-updates/multiverse arm64 Components [212 B]
-Get:18 http://ports.ubuntu.com/ubuntu-ports questing-updates/multiverse Icons (48x48) [1,867 B]
-Get:19 http://ports.ubuntu.com/ubuntu-ports questing-updates/multiverse Icons (64x64) [2,497 B]
-Get:20 http://ports.ubuntu.com/ubuntu-ports questing-backports/main arm64 Components [212 B]
-Get:21 http://ports.ubuntu.com/ubuntu-ports questing-backports/restricted arm64 Components [216 B]
-Get:22 http://ports.ubuntu.com/ubuntu-ports questing-backports/universe arm64 Components [5,752 B]
-Get:23 http://ports.ubuntu.com/ubuntu-ports questing-backports/multiverse arm64 Components [216 B]
-Get:24 http://ports.ubuntu.com/ubuntu-ports questing-security/main arm64 Packages [269 kB]
-Get:25 http://ports.ubuntu.com/ubuntu-ports questing-security/main Translation-en [69.0 kB]
-Get:26 http://ports.ubuntu.com/ubuntu-ports questing-security/main arm64 Components [2,552 B]
-Get:27 http://ports.ubuntu.com/ubuntu-ports questing-security/main arm64 c-n-f Metadata [6,276 B]
-Get:28 http://ports.ubuntu.com/ubuntu-ports questing-security/restricted arm64 Packages [266 kB]
-Get:29 http://ports.ubuntu.com/ubuntu-ports questing-security/restricted Translation-en [38.3 kB]
-Get:30 http://ports.ubuntu.com/ubuntu-ports questing-security/restricted arm64 Components [212 B]
-Get:31 http://ports.ubuntu.com/ubuntu-ports questing-security/universe arm64 Packages [188 kB]
-Get:32 http://ports.ubuntu.com/ubuntu-ports questing-security/universe Translation-en [55.3 kB]
-Get:33 http://ports.ubuntu.com/ubuntu-ports questing-security/universe arm64 Components [12.5 kB]
-Get:34 http://ports.ubuntu.com/ubuntu-ports questing-security/universe arm64 c-n-f Metadata [5,160 B]
-Get:35 http://ports.ubuntu.com/ubuntu-ports questing-security/multiverse arm64 Components [212 B]
-Fetched 2,536 kB in 5s (536 kB/s)                                    
-208 packages can be upgraded. Run 'apt list --upgradable' to see them.
-vboxuser@laba5:/$ sudo apt install htop sysstat -y
-sysstat is already the newest version (12.7.7-0ubuntu1).
-sysstat set to manually installed.
-Installing:                 
-  htop
-
-Suggested packages:
-  lm-sensors
-
-Summary:
-  Upgrading: 0, Installing: 1, Removing: 0, Not Upgrading: 208
-  Download size: 184 kB
-  Space needed: 520 kB / 14.5 GB available
-
-Get:1 http://ports.ubuntu.com/ubuntu-ports questing/main arm64 htop arm64 3.4.1-5build1 [184 kB]
-Fetched 184 kB in 4s (50.5 kB/s)
-Selecting previously unselected package htop.
-(Reading database ... 194833 files and directories currently installed.)
-Preparing to unpack .../htop_3.4.1-5build1_arm64.deb ...
-Unpacking htop (3.4.1-5build1) ...
-Setting up htop (3.4.1-5build1) ...
-Processing triggers for desktop-file-utils (0.28-1) ...
-Processing triggers for hicolor-icon-theme (0.18-2) ...
-Processing triggers for gnome-menus (3.36.0-3ubuntu2) ...
-Processing triggers for man-db (2.13.1-1) ...
-vboxuser@laba5:/$ htop
-vboxuser@laba5:/$ htop 
-vboxuser@laba5:/$ iostat -x 1 5
-Linux 6.17.0-19-generic (laba5) 	03/26/2026 	_aarch64_	(2 CPU)
-
-avg-cpu:  %user   %nice %system %iowait  %steal   %idle
-          14.57    0.69    6.32    0.87    0.00   77.55
-
-Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
-loop0            0.04      0.05     0.00   0.00    0.21     1.21    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop1            1.11     12.94     0.00   0.00    0.17    11.66    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.02
-loop10           0.28      6.19     0.00   0.00    0.26    21.88    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop11           0.15      2.02     0.00   0.00    0.11    13.68    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop12           5.37     77.72     0.00   0.00    0.13    14.48    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.06
-loop13           0.15      1.20     0.00   0.00    0.46     7.98    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop14           0.28      4.65     0.00   0.00    0.76    16.78    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.02
-loop15           0.14      1.11     0.00   0.00    0.50     8.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop16           1.15     10.70     0.00   0.00    0.06     9.30    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop17           0.15      1.13     0.00   0.00    0.00     7.35    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop18           0.19      2.16     0.00   0.00    0.03    11.45    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop19           0.81      7.91     0.00   0.00    0.05     9.79    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop2            0.14      1.12     0.00   0.00    0.41     7.74    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop3            0.16      2.15     0.00   0.00    0.37    13.39    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop4            0.16      2.13     0.00   0.00    0.46    13.56    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop5            0.19      2.29     0.00   0.00    0.47    12.34    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop6            0.16      2.13     0.00   0.00    0.60    13.52    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop7            5.56     15.54     0.00   0.00    0.03     2.80    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop8            0.14      1.12     0.00   0.00    0.52     7.72    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-loop9            0.14      1.11     0.00   0.00    0.54     7.70    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.01
-sda             79.46   6236.31    34.83  30.48    1.39    78.49   42.66   4893.67   120.93  73.92    2.92   114.72    0.00      0.00     0.00   0.00    0.00     0.00    9.85    0.75    0.24   2.81
-sr0              0.25      4.72     0.00   0.00    0.14    19.01    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-
-
-avg-cpu:  %user   %nice %system %iowait  %steal   %idle
-          11.22    0.00    0.51    0.00    0.00   88.27
-
-Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
-loop0            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop1            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop10           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop11           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop12           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop13           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop14           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop15           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop16           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop17           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop18           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop19           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop2            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop3            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop4            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop5            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop6            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop7            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop8            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop9            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-sda              0.00      0.00     0.00   0.00    0.00     0.00    1.00      4.00     0.00   0.00    0.00     4.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-sr0              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-
-
-avg-cpu:  %user   %nice %system %iowait  %steal   %idle
-          11.17    0.00    2.03    0.00    0.00   86.80
-
-Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
-loop0            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop1            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop10           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop11           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop12           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop13           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop14           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop15           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop16           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop17           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop18           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop19           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop2            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop3            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop4            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop5            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop6            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop7            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop8            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop9            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-sda              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-sr0              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-
-
-avg-cpu:  %user   %nice %system %iowait  %steal   %idle
-           9.18    0.00    1.53    0.00    0.00   89.29
-
-Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
-loop0            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop1            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop10           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop11           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop12           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop13           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop14           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop15           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop16           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop17           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop18           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop19           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop2            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop3            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop4            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop5            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop6            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop7            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop8            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop9            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-sda              0.00      0.00     0.00   0.00    0.00     0.00    6.00     80.00    11.00  64.71    0.50    13.33    0.00      0.00     0.00   0.00    0.00     0.00    1.00    2.00    0.00   0.20
-sr0              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-
-
-avg-cpu:  %user   %nice %system %iowait  %steal   %idle
-          22.62    0.00    4.17    0.00    0.00   73.21
-
-Device            r/s     rkB/s   rrqm/s  %rrqm r_await rareq-sz     w/s     wkB/s   wrqm/s  %wrqm w_await wareq-sz     d/s     dkB/s   drqm/s  %drqm d_await dareq-sz     f/s f_await  aqu-sz  %util
-loop0            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop1            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop10           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop11           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop12           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop13           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop14           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop15           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop16           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop17           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop18           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop19           0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop2            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop3            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop4            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop5            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop6            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop7            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop8            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-loop9            0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-sda              0.00      0.00     0.00   0.00    0.00     0.00   89.00    444.00     1.00   1.11    0.40     4.99    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.04   0.40
-sr0              0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00      0.00     0.00   0.00    0.00     0.00    0.00    0.00    0.00   0.00
-
-
-vboxuser@laba5:/$ ps -eo pid, comm, %cpu,%mem --sort=-%cpu | head -n 4 ^C
-vboxuser@laba5:/$ ^C
-vboxuser@laba5:/$ ^C
-vboxuser@laba5:/$ ps -eo pid, comm, %cpu,%mem --sort=-%cpu | head -n 4
-error: garbage option
-
-Usage:
- ps [options]
-
- Try 'ps --help <simple|list|output|threads|misc|all>'
-  or 'ps --help <s|l|o|t|m|a>'
- for additional help text.
-
-For more details see ps(1).
-vboxuser@laba5:/$ ps -eo pid,comm,pcpu,pmem --sort=-pcpu | head -n 4
-    PID COMMAND         %CPU %MEM
-   5368 ps               100  0.1
-   5369 head            50.0  0.1
-   1100 snapd            7.8  1.2
-vboxuser@laba5:/$ ps -eo pid,comm,pcpu,pmem --sort=-pmem | head -n 4
-    PID COMMAND         %CPU %MEM
-   2562 gnome-shell      6.4 13.0
-   3951 ptyxis           4.7  8.6
-   3996 mutter-x11-fram  0.0  3.2
-vboxuser@laba5:/$ sudo iotop -o -b -n 5 | head -n 20
-sudo-rs: 'iotop': command not found
-vboxuser@laba5:/$ sudo apt install -y iotop
-Installing:                     
-  iotop
-
-Summary:
-  Upgrading: 0, Installing: 1, Removing: 0, Not Upgrading: 208
-  Download size: 24.6 kB
-  Space needed: 163 kB / 14.3 GB available
-
-Get:1 http://ports.ubuntu.com/ubuntu-ports questing/main arm64 iotop arm64 0.6-42-ga14256a-0.3build1 [24.6 kB]
-Fetched 24.6 kB in 2s (13.5 kB/s)
-Selecting previously unselected package iotop.
-(Reading database ... 194843 files and directories currently installed.)
-Preparing to unpack .../iotop_0.6-42-ga14256a-0.3build1_arm64.deb ...
-Unpacking iotop (0.6-42-ga14256a-0.3build1) ...
-Setting up iotop (0.6-42-ga14256a-0.3build1) ...
-update-alternatives: using /usr/sbin/iotop-py to provide /usr/sbin/iotop (iotop) in auto mode
-Processing triggers for man-db (2.13.1-1) ...
-vboxuser@laba5:/$ sudo iotop -o -b -n 5 | head -n 20
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:        47.44 K/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:      75.12 K/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-    299 be/3 root        0.00 B/s   47.44 K/s ?unavailable?  [jbd2/sda2-8]
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-vboxuser@laba5:/$ sudo iotop -o -b -n 15
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         7.81 K/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:      19.52 K/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-    299 be/3 root        0.00 B/s    7.81 K/s ?unavailable?  [jbd2/sda2-8]
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:      11.83 K/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-Total DISK READ:         0.00 B/s | Total DISK WRITE:         0.00 B/s
-Current DISK READ:       0.00 B/s | Current DISK WRITE:       0.00 B/s
-    TID  PRIO  USER     DISK READ  DISK WRITE  SWAPIN      IO    COMMAND
-vboxuser@laba5:/$ df -h
-Filesystem      Size  Used Avail Use% Mounted on
-tmpfs           677M  1.9M  675M   1% /run
-/dev/sda2        24G  8.9G   14G  40% /
-tmpfs           1.7G     0  1.7G   0% /dev/shm
-efivarfs        256K   32K  225K  13% /sys/firmware/efi/efivars
-tmpfs           5.0M  8.0K  5.0M   1% /run/lock
-tmpfs           1.7G  8.0K  1.7G   1% /tmp
-tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-journald.service
-tmpfs           1.0M     0  1.0M   0% /run/credentials/systemd-resolved.service
-/dev/sda1       1.1G  6.6M  1.1G   1% /boot/efi
-tmpfs           339M   96K  339M   1% /run/user/1000
-/dev/sr0        4.7G  4.7G     0 100% /media/vboxuser/Ubuntu 25.10 arm64
-vboxuser@laba5:/$ du -h /var | sort -rh | head -n 10
-du: cannot read directory '/var/cache/apparmor/8eeb6286.0': Permission denied
-du: cannot read directory '/var/cache/apparmor/70b6ca72.0': Permission denied
-du: cannot read directory '/var/cache/private': Permission denied
-du: cannot read directory '/var/cache/ldconfig': Permission denied
-du: cannot read directory '/var/cache/cups': Permission denied
-du: cannot read directory '/var/cache/apt/archives/partial': Permission denied
-du: cannot read directory '/var/spool/rsyslog': Permission denied
-du: cannot read directory '/var/spool/cron/crontabs': Permission denied
-du: cannot read directory '/var/spool/cups': Permission denied
-du: cannot read directory '/var/log/private': Permission denied
-du: cannot read directory '/var/log/sssd': Permission denied
-du: cannot read directory '/var/log/speech-dispatcher': Permission denied
-du: cannot read directory '/var/log/gdm3': Permission denied
-du: cannot read directory '/var/log/chrony': Permission denied
-du: cannot read directory '/var/log/unattended-upgrades': Permission denied
-du: cannot read directory '/var/lib/fwupd/gnupg': Permission denied
-du: cannot read directory '/var/lib/docker': Permission denied
-du: cannot read directory '/var/lib/udisks2': Permission denied
-du: cannot read directory '/var/lib/snapd/cache': Permission denied
-du: cannot read directory '/var/lib/snapd/cookie': Permission denied
-du: cannot read directory '/var/lib/snapd/void': Permission denied
-du: cannot read directory '/var/lib/saned': Permission denied
-du: cannot read directory '/var/lib/private': Permission denied
-du: cannot read directory '/var/lib/containerd': Permission denied
-du: cannot read directory '/var/lib/openvpn/chroot': Permission denied
-du: cannot read directory '/var/lib/gdm3/seat0/config': Permission denied
-du: cannot read directory '/var/lib/gdm3/seat0/state': Permission denied
-du: cannot read directory '/var/lib/sss/secrets': Permission denied
-du: cannot read directory '/var/lib/sss/db': Permission denied
-du: cannot read directory '/var/lib/sss/pipes/private': Permission denied
-du: cannot read directory '/var/lib/sss/keytabs': Permission denied
-du: cannot read directory '/var/lib/sss/deskprofile': Permission denied
-du: cannot read directory '/var/lib/fprint': Permission denied
-du: cannot read directory '/var/lib/AccountsService/users': Permission denied
-du: cannot read directory '/var/lib/update-notifier/package-data-downloads/partial': Permission denied
-du: cannot read directory '/var/lib/bluetooth': Permission denied
-du: cannot read directory '/var/lib/apt/lists/partial': Permission denied
-du: cannot read directory '/var/lib/gnome-remote-desktop': Permission denied
-du: cannot read directory '/var/lib/chrony': Permission denied
-du: cannot read directory '/var/lib/colord/.cache': Permission denied
-du: cannot read directory '/var/lib/NetworkManager': Permission denied
-du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-chrony.service-IQ6Pyk': Permission denied
-du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-ModemManager.service-CgSPef': Permission denied
-du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-polkit.service-Tx08Lt': Permission denied
-du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-power-profiles-daemon.service-PHID5P': Permission denied
-du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-systemd-logind.service-TuUM6e': Permission denied
-du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-switcheroo-control.service-fcji9y': Permission denied
-du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-colord.service-Ql94LS': Permission denied
-du: cannot read directory '/var/tmp/systemd-private-7619660175c6416ba475b767c3ef0311-upower.service-GkJHO0': Permission denied
-3.3G	/var
-3.0G	/var/lib
-2.7G	/var/lib/snapd
-2.6G	/var/lib/snapd/snaps
-164M	/var/log
-161M	/var/log/journal/4793bc6817304b2eb81657150578b550
-161M	/var/log/journal
-148M	/var/lib/apt/lists
-148M	/var/lib/apt
-141M	/var/cache
-vboxuser@laba5:/$ sudo find /var -type f -exec du -h {} + | sort -rh | head -n 3
-553M	/var/lib/snapd/snaps/gnome-46-2404_154.snap
-553M	/var/lib/snapd/cache/37b852c1861182e7a518b849062c85f15aec4b9eb59eabec341fd540c2b1cf5ac9d22072080a4ada4c9e6eff88ffe622
-503M	/var/lib/snapd/snaps/gnome-42-2204_245.snap
-sort: write failed: 'standard output': Broken pipe
-vboxuser@laba5:/$ 
+vboxuser@laba5:/$ docker --version
+Docker version 28.2.2, build 28.2.2-0ubuntu1
+vboxuser@laba5:/$ cd DevOps-Intro
+bash: cd: DevOps-Intro: No such file or directory
+vboxuser@laba5:/$ cd ~DevOps-Intro
+bash: cd: ~DevOps-Intro: No such file or directory
+vboxuser@laba5:/$ cd ~/DevOps-Intro
+vboxuser@laba5:~/DevOps-Intro$ docker -v
+Docker version 28.2.2, build 28.2.2-0ubuntu1
+vboxuser@laba5:~/DevOps-Intro$ docker run -d --name juice-shop -p 3000:3000 bkimminich/juice-shop
+Unable to find image 'bkimminich/juice-shop:latest' locally
+latest: Pulling from bkimminich/juice-shop
+0e7df641b965: Pull complete 
+c172f21841df: Pull complete 
+b4e6f1bfce0a: Pull complete 
+b4242723c53f: Pull complete 
+d6b1b89eccac: Pull complete 
+2780920e5dbf: Pull complete 
+7c12895b777b: Pull complete 
+3214acf345c0: Pull complete 
+52630fc75a18: Pull complete 
+dd64bf2dd177: Pull complete 
+b839dfae01f6: Pull complete 
+ebddc55facdc: Pull complete 
+bdfd7f7e5bf6: Pull complete 
+f3e519d19e1f: Pull complete 
+cc446582cc7c: Pull complete 
+52b2cf548ae5: Pull complete 
+8072b5a0f795: Pull complete 
+77d3479ca1b9: Pull complete 
+35d8e5f294cf: Pull complete 
+ff43311d121d: Pull complete 
+278aecde295e: Pull complete 
+f4c6cada9d67: Pull complete 
+8386d4aec98d: Pull complete 
+aa51306f6de8: Pull complete 
+Digest: sha256:5539448a1d3fa88d932d3f80a8d3f69a16cde6253c1d4256b28a38ef910e4114
+Status: Downloaded newer image for bkimminich/juice-shop:latest
+f871c2d8d72a50a1bcf52fd439dd07984746c5c4f08447ba0f7db66754842be1
+vboxuser@laba5:~/DevOps-Intro$ docker ps
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+f871c2d8d72a   bkimminich/juice-shop   "/nodejs/bin/node /j…"   28 seconds ago   Up 28 seconds   0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp   juice-shop
+vboxuser@laba5:~/DevOps-Intro$ ip -f inet -o addr show docker0 | awk '{printy $4}' | cut -d '/' -f 1
+vboxuser@laba5:~/DevOps-Intro$ ip -f inet -o addr show docker0 | awk '{print $4}' | cut -d '/' -f 1
+172.17.0.1
+vboxuser@laba5:~/DevOps-Intro$ docker run --rm -u zap -v "$(pwd)":/zap/wrk:rw \
+> -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
+> -t http://172.17.0.1:3000 \
+> -g gen.conf \ 
+Unable to find image 'ghcr.io/zaproxy/zaproxy:stable' locally
+stable: Pulling from zaproxy/zaproxy
+eb04ef52de3a: Pull complete 
+9cd477812358: Pull complete 
+4a755f9e407e: Pull complete 
+8d7c7d8d948c: Pull complete 
+10bff4d78e4a: Pull complete 
+e465d4219d66: Pull complete 
+4f4fb700ef54: Pull complete 
+7fe30193948c: Pull complete 
+ddeb8e8bb81f: Pull complete 
+04c9bfddfe0a: Pull complete 
+5c5ce62775ba: Pull complete 
+80414daa6971: Pull complete 
+94428a06f602: Pull complete 
+0518d3bee6c6: Pull complete 
+605dcdf58e46: Pull complete 
+4e108a765cac: Pull complete 
+7b417353d040: Pull complete 
+f65449d4570b: Pull complete 
+85a5f9a01a9f: Pull complete 
+068a090ce0c0: Pull complete 
+Digest: sha256:c4da4c234258d444d9988fce9d034b00323724818daa4c91ca46f09aa04b46db
+Status: Downloaded newer image for ghcr.io/zaproxy/zaproxy:stable
+   
+-r zap-report.html
+Total of 123 URLs
+PASS: Vulnerable JS Library (Powered by Retire.js) [10003]
+PASS: In Page Banner Information Leak [10009]
+PASS: Cookie No HttpOnly Flag [10010]
+PASS: Cookie Without Secure Flag [10011]
+PASS: Re-examine Cache-control Directives [10015]
+PASS: Cross-Domain JavaScript Source File Inclusion [10017]
+PASS: Content-Type Header Missing [10019]
+PASS: Anti-clickjacking Header [10020]
+PASS: X-Content-Type-Options Header Missing [10021]
+PASS: Information Disclosure - Debug Error Messages [10023]
+PASS: Information Disclosure - Sensitive Information in URL [10024]
+PASS: Information Disclosure - Sensitive Information in HTTP Referrer Header [10025]
+PASS: HTTP Parameter Override [10026]
+PASS: Information Disclosure - Suspicious Comments [10027]
+PASS: Off-site Redirect [10028]
+PASS: Cookie Poisoning [10029]
+PASS: User Controllable Charset [10030]
+PASS: User Controllable HTML Element Attribute (Potential XSS) [10031]
+PASS: Viewstate [10032]
+PASS: Directory Browsing [10033]
+PASS: Heartbleed OpenSSL Vulnerability (Indicative) [10034]
+PASS: Strict-Transport-Security Header [10035]
+PASS: HTTP Server Response Header [10036]
+PASS: Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) [10037]
+PASS: X-Backend-Server Header Information Leak [10039]
+PASS: Secure Pages Include Mixed Content [10040]
+PASS: HTTP to HTTPS Insecure Transition in Form Post [10041]
+PASS: HTTPS to HTTP Insecure Transition in Form Post [10042]
+PASS: User Controllable JavaScript Event (XSS) [10043]
+PASS: Big Redirect Detected (Potential Sensitive Information Leak) [10044]
+PASS: Content Cacheability [10049]
+PASS: Retrieved from Cache [10050]
+PASS: X-ChromeLogger-Data (XCOLD) Header Information Leak [10052]
+PASS: Cookie without SameSite Attribute [10054]
+PASS: CSP [10055]
+PASS: X-Debug-Token Information Leak [10056]
+PASS: Username Hash Found [10057]
+PASS: X-AspNet-Version Response Header [10061]
+PASS: PII Disclosure [10062]
+PASS: Hash Disclosure [10097]
+PASS: Source Code Disclosure [10099]
+PASS: Weak Authentication Method [10105]
+PASS: Reverse Tabnabbing [10108]
+PASS: Modern Web Application [10109]
+PASS: Authentication Request Identified [10111]
+PASS: Session Management Response Identified [10112]
+PASS: Verification Request Identified [10113]
+PASS: Script Served From Malicious Domain (polyfill) [10115]
+PASS: ZAP is Out of Date [10116]
+PASS: Absence of Anti-CSRF Tokens [10202]
+PASS: Private IP Disclosure [2]
+PASS: Session ID in URL Rewrite [3]
+PASS: Script Passive Scan Rules [50001]
+PASS: Insecure JSF ViewState [90001]
+PASS: Java Serialization Object [90002]
+PASS: Sub Resource Integrity Attribute Missing [90003]
+PASS: Charset Mismatch [90011]
+PASS: Application Error Disclosure [90022]
+PASS: WSDL File Detection [90030]
+PASS: Loosely Scoped Cookie [90033]
+WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 11 
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000 (200 OK)
+	http://172.17.0.1:3000/ftp (200 OK)
+	http://172.17.0.1:3000/ftp/coupons_2013.md.bak (403 Forbidden)
+WARN-NEW: Deprecated Feature Policy Header Set [10063] x 11 
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000/chunk-24EZLZ4I.js (200 OK)
+	http://172.17.0.1:3000 (200 OK)
+	http://172.17.0.1:3000/chunk-LHKS7QUN.js (200 OK)
+WARN-NEW: Timestamp Disclosure - Unix [10096] x 9 
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+WARN-NEW: Cross-Domain Misconfiguration [10098] x 11 
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/robots.txt (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000/chunk-24EZLZ4I.js (200 OK)
+	http://172.17.0.1:3000/assets/public/favicon_js.ico (200 OK)
+WARN-NEW: Dangerous JS Functions [10110] x 2 
+	http://172.17.0.1:3000/chunk-LHKS7QUN.js (200 OK)
+	http://172.17.0.1:3000/main.js (200 OK)
+WARN-NEW: Cross-Origin-Embedder-Policy Header Missing or Invalid [90004] x 10 
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000 (200 OK)
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 6	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 60
+vboxuser@laba5:~/DevOps-Intro$ 
+vboxuser@laba5:~/DevOps-Intro$ -r zap-report.html
+-r: command not found
+vboxuser@laba5:~/DevOps-Intro$ docker run --rm -u zap -v "$(pwd)":/zap/wrk:rw \
+> -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py \
+> -t http://172.17.0.1:3000 \
+> -g gen.conf \
+> -r zap-report.html
+vboxuser@laba5:~/DevOps-Intro$ pwd
+/home/vboxuser/DevOps-Intro
+vboxuser@laba5:~/DevOps-Intro$ ls
+-g  -t  VMlabs  gen.conf  task2.txt
+vboxuser@laba5:~/DevOps-Intro$ docker run --rm -u zap -v "$(pwd)":/zap/wrk:rw -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t http://172.17.0.1:3000 -g gen.conf -r zap-report.html 
+Total of 123 URLs
+PASS: Vulnerable JS Library (Powered by Retire.js) [10003]
+PASS: In Page Banner Information Leak [10009]
+PASS: Cookie No HttpOnly Flag [10010]
+PASS: Cookie Without Secure Flag [10011]
+PASS: Re-examine Cache-control Directives [10015]
+PASS: Cross-Domain JavaScript Source File Inclusion [10017]
+PASS: Content-Type Header Missing [10019]
+PASS: Anti-clickjacking Header [10020]
+PASS: X-Content-Type-Options Header Missing [10021]
+PASS: Information Disclosure - Debug Error Messages [10023]
+PASS: Information Disclosure - Sensitive Information in URL [10024]
+PASS: Information Disclosure - Sensitive Information in HTTP Referrer Header [10025]
+PASS: HTTP Parameter Override [10026]
+PASS: Information Disclosure - Suspicious Comments [10027]
+PASS: Off-site Redirect [10028]
+PASS: Cookie Poisoning [10029]
+PASS: User Controllable Charset [10030]
+PASS: User Controllable HTML Element Attribute (Potential XSS) [10031]
+PASS: Viewstate [10032]
+PASS: Directory Browsing [10033]
+PASS: Heartbleed OpenSSL Vulnerability (Indicative) [10034]
+PASS: Strict-Transport-Security Header [10035]
+PASS: HTTP Server Response Header [10036]
+PASS: Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) [10037]
+PASS: X-Backend-Server Header Information Leak [10039]
+PASS: Secure Pages Include Mixed Content [10040]
+PASS: HTTP to HTTPS Insecure Transition in Form Post [10041]
+PASS: HTTPS to HTTP Insecure Transition in Form Post [10042]
+PASS: User Controllable JavaScript Event (XSS) [10043]
+PASS: Big Redirect Detected (Potential Sensitive Information Leak) [10044]
+PASS: Content Cacheability [10049]
+PASS: Retrieved from Cache [10050]
+PASS: X-ChromeLogger-Data (XCOLD) Header Information Leak [10052]
+PASS: Cookie without SameSite Attribute [10054]
+PASS: CSP [10055]
+PASS: X-Debug-Token Information Leak [10056]
+PASS: Username Hash Found [10057]
+PASS: X-AspNet-Version Response Header [10061]
+PASS: PII Disclosure [10062]
+PASS: Hash Disclosure [10097]
+PASS: Source Code Disclosure [10099]
+PASS: Weak Authentication Method [10105]
+PASS: Reverse Tabnabbing [10108]
+PASS: Modern Web Application [10109]
+PASS: Authentication Request Identified [10111]
+PASS: Session Management Response Identified [10112]
+PASS: Verification Request Identified [10113]
+PASS: Script Served From Malicious Domain (polyfill) [10115]
+PASS: ZAP is Out of Date [10116]
+PASS: Absence of Anti-CSRF Tokens [10202]
+PASS: Private IP Disclosure [2]
+PASS: Session ID in URL Rewrite [3]
+PASS: Script Passive Scan Rules [50001]
+PASS: Insecure JSF ViewState [90001]
+PASS: Java Serialization Object [90002]
+PASS: Sub Resource Integrity Attribute Missing [90003]
+PASS: Charset Mismatch [90011]
+PASS: Application Error Disclosure [90022]
+PASS: WSDL File Detection [90030]
+PASS: Loosely Scoped Cookie [90033]
+WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 11 
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000 (200 OK)
+	http://172.17.0.1:3000/ftp (200 OK)
+	http://172.17.0.1:3000/ftp/coupons_2013.md.bak (403 Forbidden)
+WARN-NEW: Deprecated Feature Policy Header Set [10063] x 11 
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000 (200 OK)
+	http://172.17.0.1:3000/chunk-24EZLZ4I.js (200 OK)
+	http://172.17.0.1:3000/chunk-T3PSKZ45.js (200 OK)
+WARN-NEW: Timestamp Disclosure - Unix [10096] x 9 
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+WARN-NEW: Cross-Domain Misconfiguration [10098] x 11 
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/robots.txt (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000 (200 OK)
+	http://172.17.0.1:3000/chunk-24EZLZ4I.js (200 OK)
+WARN-NEW: Dangerous JS Functions [10110] x 2 
+	http://172.17.0.1:3000/chunk-LHKS7QUN.js (200 OK)
+	http://172.17.0.1:3000/main.js (200 OK)
+WARN-NEW: Cross-Origin-Embedder-Policy Header Missing or Invalid [90004] x 10 
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/ (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000/sitemap.xml (200 OK)
+	http://172.17.0.1:3000 (200 OK)
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 6	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 60
+vboxuser@laba5:~/DevOps-Intro$ docker stop juice-shop
+juice-shop
+vboxuser@laba5:~/DevOps-Intro$ docker rm juice-shop
+juice-shop
+vboxuser@laba5:~/DevOps-Intro$ 
 
