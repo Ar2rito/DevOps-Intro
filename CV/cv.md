@@ -36,7 +36,7 @@
 * **Docker:** Изоляция сервисов, управление образами, сетями и Volumes; multi-stage builds
 * **GitOps:** Reconciliation loops, drift detection, декларативная конфигурация
 * **DevSecOps:** Сканирование уязвимостей контейнеров (Trivy), веб-аудит (OWASP ZAP), внешний мониторинг (Checkly)
-* **WASM vs Docker:** Сравнение производительности — образ меньше на 81.7%, старт быстрее в 7.15×
+* **WASM vs Docker:** Сравнение производительности — образ меньше на 81%, старт быстрее в 7×
 * **Nix:** Детерминированный Docker-образ 3.5 MB против стандартных 860 MB
 * **Cloud:** Сравнительный анализ artifact registries (AWS/GCP/Azure) и serverless-платформ
 
