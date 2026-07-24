@@ -1,8 +1,8 @@
-<p align="center">
-  <img src="my_photo.jpg" width="150" style="border-radius: 50%;" />
-</p>
-
 # Арсений Колесников
+
+<p>
+  <img src="my_photo.JPG" width="200" style="border-radius: 50%;" align="left" />
+</p>
 
 > Студент направления «Математические основы ИИ», сочетающий системное мышление с практическими
 > навыками в DevOps. Уверенно работаю с Linux, Docker, Git и CI/CD; знаком с основами сетей,
